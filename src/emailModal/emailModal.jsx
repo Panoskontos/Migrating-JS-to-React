@@ -22,7 +22,9 @@ const EmailModal = () => {
     return (
 
     <section className={newState.state.openModal?"email-modal email-modal--visible":"email-modal"}>
-      <div className="email-modal__close-btn" onClick={newState.state.closeModalAction}>
+      <div className="email-modal__close-btn"
+      // Close btn action
+      onClick={newState.state.closeModalAction}>
         <i className="gg-close" />
       </div>
       <div className="email-modal__container">
@@ -40,7 +42,9 @@ const EmailModal = () => {
               notifications, discounts, and our award winning newsletter.
             </span>
           </p>
-          <div className={newState.emailError?"email-modal__error-message--active":"email-modal__error-message"} >
+          <div 
+          // close btn action
+          className={newState.emailError?"email-modal__error-message--active":"email-modal__error-message"} >
             Sorry this is not a valid email
           </div>
           <div className="email-modal__form-group">
@@ -56,16 +60,27 @@ const EmailModal = () => {
               onFocus={newState.removeError}
 
             />
-            <button className="email-modal__button" onClick={newState.form_submitted}>Send</button>
+            <button className="email-modal__button" 
+            
+            // Submit action
+            onClick={newState.form_submitted}>Send</button>
           </div>
-          <div className="email-modal__decline-offer" onClick={newState.state.closeModalAction}>
+
+
+          <div className="email-modal__decline-offer"
+          // Close modal action 
+          onClick={newState.state.closeModalAction}>
             Sorry, I'm not interested
           </div>
         </div>
         <div className="email-modal__side-img">
           <img src="img/pexels-photo-4462782.jpeg" />
         </div>
-        <div className={newState.formSent?"email-thank email-thank--success":"email-thank"}>
+
+        
+        <div 
+        // thank you action
+        className={newState.formSent?"email-thank email-thank--success":"email-thank"}>
           <div className="email-thank__title">Thank You</div>
           <p className="email-thank__message">
             check your email we sent you some instructions... by the way welcome
