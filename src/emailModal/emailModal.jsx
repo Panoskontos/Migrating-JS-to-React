@@ -56,7 +56,7 @@ const EmailModal = () => {
               onFocus={newState.removeError}
 
             />
-            <button className="email-modal__button">Send</button>
+            <button className="email-modal__button" onClick={newState.form_submitted}>Send</button>
           </div>
           <div className="email-modal__decline-offer" onClick={newState.state.closeModalAction}>
             Sorry, I'm not interested
@@ -65,7 +65,7 @@ const EmailModal = () => {
         <div className="email-modal__side-img">
           <img src="img/pexels-photo-4462782.jpeg" />
         </div>
-        <div className="email-thank">
+        <div className={newState.formSent?"email-thank email-thank--success":"email-thank"}>
           <div className="email-thank__title">Thank You</div>
           <p className="email-thank__message">
             check your email we sent you some instructions... by the way welcome

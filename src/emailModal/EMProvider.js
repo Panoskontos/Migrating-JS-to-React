@@ -45,8 +45,6 @@ export function EMProvider({children}){
             setEmail(e.target.value)
     }
 
-
-
     // ERROR
     const [ emailError, setEmailError] = useState(false)
     
@@ -71,8 +69,29 @@ export function EMProvider({children}){
         setEmailError(false)
     }
     
+
+    // Form state
+    const [ formSent, setFormSent ] = useState(false)
+    const form_submitted=(e)=>{
+        e.preventDefault()
+        if(!emailError){
+            setFormSent(true)
+        }
+    }
+
+
     return(
-        <StateContext.Provider value={{state,email,getEmail,checkEmail,removeError,emailError}}>
+        <StateContext.Provider 
+        value={{
+        state,
+        email,
+        getEmail,
+        checkEmail,
+        removeError,
+        emailError,
+        formSent,
+        form_submitted
+        }}>
             {children}
         </StateContext.Provider>
     ) 
