@@ -11,9 +11,9 @@ export function useStateContext(){
 export function EMProvider({children}){
 
     // FUNCTIONS
+    
     // create functions for state
-    const openModalAction = () => {
-        
+    const openModalAction = () => {       
         // set cookie
         Cookies.set('my_modal_was_opened', true, { expires: 7 })
 
@@ -22,22 +22,31 @@ export function EMProvider({children}){
             ...state, openModal:true
         })
     }
+
+
     const closeModalAction = () => {
         setNewState({
             ...state, openModal:false
         })
     }
 
+  
 
     // STATE
     const [state, setNewState] = useState({
         openModal:false,
         openModalAction,
-        closeModalAction
+        closeModalAction,
     })
+
+    // Seperate EmailHook state and hook
+    const [ email, setEmail ] = useState('')
+    const getEmail =(e) =>{
+            setEmail(e.target.value)
+    }
     
     return(
-        <StateContext.Provider value={state}>
+        <StateContext.Provider value={{state,email,getEmail}}>
             {children}
         </StateContext.Provider>
     ) 

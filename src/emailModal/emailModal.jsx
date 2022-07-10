@@ -12,7 +12,7 @@ const EmailModal = () => {
 
         // check if cookie was opened
         if(!Cookies.get('my_modal_was_opened')){
-          newState.openModalAction()
+          newState.state.openModalAction()
         }
       })
     },[])
@@ -21,8 +21,8 @@ const EmailModal = () => {
 
     return (
 
-    <section className={newState.openModal?"email-modal email-modal--visible":"email-modal"}>
-      <div className="email-modal__close-btn" onClick={newState.closeModalAction}>
+    <section className={newState.state.openModal?"email-modal email-modal--visible":"email-modal"}>
+      <div className="email-modal__close-btn" onClick={newState.state.closeModalAction}>
         <i className="gg-close" />
       </div>
       <div className="email-modal__container">
@@ -48,10 +48,13 @@ const EmailModal = () => {
               type="email"
               className="email-modal__input"
               placeholder="youremail@mail.com"
+              // get and change email
+              onChange={newState.getEmail}
+              value={newState.email}
             />
             <button className="email-modal__button">Send</button>
           </div>
-          <div className="email-modal__decline-offer" onClick={newState.closeModalAction}>
+          <div className="email-modal__decline-offer" onClick={newState.state.closeModalAction}>
             Sorry, I'm not interested
           </div>
         </div>
