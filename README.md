@@ -13,6 +13,9 @@ Step4 -- Create functions inside Provider and change the state
 
 Step5 -- You can create seperate hooks for some functionalities
 
+<br>
+<br>
+
 
 Why to do this
 - Make the component reusable
