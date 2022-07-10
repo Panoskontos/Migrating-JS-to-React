@@ -1,5 +1,6 @@
 import { useStateContext } from "./EMProvider";
 import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 const EmailModal = () => {
 
@@ -8,7 +9,11 @@ const EmailModal = () => {
     // run once when mouse leaves
     useEffect(()=>{
       document.body.addEventListener('mouseleave', ()=>{
-        newState.openModalAction()
+
+        // check if cookie was opened
+        if(!Cookies.get('my_modal_was_opened')){
+          newState.openModalAction()
+        }
       })
     },[])
 

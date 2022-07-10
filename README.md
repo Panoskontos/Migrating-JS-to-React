@@ -9,3 +9,4 @@ Step3 -- Setup State ContextAPI
 - wrap App with EMProvider
 - useStateContext inside all components
 
+Step4 -- Create functions inside Provider and change the state

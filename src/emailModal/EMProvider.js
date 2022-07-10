@@ -1,4 +1,6 @@
 import React, {useContext, useState} from 'react'
+import Cookies from "js-cookie";
+
 
 export const StateContext = React.createContext();
 
@@ -7,10 +9,14 @@ export function useStateContext(){
 }
 
 export function EMProvider({children}){
-    
+
     // FUNCTIONS
     // create functions for state
     const openModalAction = () => {
+        
+        // set cookie
+        Cookies.set('my_modal_was_opened', true, { expires: 7 })
+
         setNewState({
             // get the object and change only openModal
             ...state, openModal:true
