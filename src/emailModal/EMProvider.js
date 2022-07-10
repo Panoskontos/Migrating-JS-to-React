@@ -23,7 +23,6 @@ export function EMProvider({children}){
         })
     }
 
-
     const closeModalAction = () => {
         setNewState({
             ...state, openModal:false
@@ -32,23 +31,24 @@ export function EMProvider({children}){
 
   
 
-    // STATE
+    // GENERAL STATE
     const [state, setNewState] = useState({
         openModal:false,
         openModalAction,
         closeModalAction,
     })
 
+
+    // EMAIL STATE
     // Seperate EmailHook state and hook
     const [ email, setEmail ] = useState('')
     const getEmail =(e) =>{
             setEmail(e.target.value)
     }
 
-    // ERROR
-    const [ emailError, setEmailError] = useState(false)
-    
 
+    // ERROR STATE
+    const [ emailError, setEmailError] = useState(false)
     const checkEmail = (e) =>{
         console.log('checking for email')
 
@@ -63,14 +63,13 @@ export function EMProvider({children}){
             setEmailError(true)
         }
     }
-
     const removeError = () =>{
         console.log('Removing error')
         setEmailError(false)
     }
     
 
-    // Form state
+    // FORM STATE
     const [ formSent, setFormSent ] = useState(false)
     const form_submitted=(e)=>{
         e.preventDefault()
