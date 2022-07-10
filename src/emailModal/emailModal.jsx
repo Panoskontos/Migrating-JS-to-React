@@ -1,8 +1,14 @@
+import { useStateContext } from "./EMProvider";
+
 
 const EmailModal = () => {
+
+    const newState = useStateContext();
+    console.log(newState)
+
     return (
 
-    <section className="email-modal email-modal--visible">
+    <section className={newState.openModal?"email-modal email-modal--visible":"email-modal"}>
       <div className="email-modal__close-btn">
         <i className="gg-close" />
       </div>
