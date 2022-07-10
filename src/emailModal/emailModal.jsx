@@ -1,15 +1,23 @@
 import { useStateContext } from "./EMProvider";
-
+import { useEffect } from "react";
 
 const EmailModal = () => {
 
     const newState = useStateContext();
+    
+    // run once when mouse leaves
+    useEffect(()=>{
+      document.body.addEventListener('mouseleave', ()=>{
+        newState.openModalAction()
+      })
+    },[])
+
     console.log(newState)
 
     return (
 
     <section className={newState.openModal?"email-modal email-modal--visible":"email-modal"}>
-      <div className="email-modal__close-btn">
+      <div className="email-modal__close-btn" onClick={newState.closeModalAction}>
         <i className="gg-close" />
       </div>
       <div className="email-modal__container">

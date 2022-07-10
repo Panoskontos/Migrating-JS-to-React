@@ -7,8 +7,27 @@ export function useStateContext(){
 }
 
 export function EMProvider({children}){
+    
+    // FUNCTIONS
+    // create functions for state
+    const openModalAction = () => {
+        setNewState({
+            // get the object and change only openModal
+            ...state, openModal:true
+        })
+    }
+    const closeModalAction = () => {
+        setNewState({
+            ...state, openModal:false
+        })
+    }
+
+
+    // STATE
     const [state, setNewState] = useState({
-        openModal:false
+        openModal:false,
+        openModalAction,
+        closeModalAction
     })
     
     return(
