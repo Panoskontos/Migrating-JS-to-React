@@ -35,7 +35,7 @@ const EmailModal = () => {
               notifications, discounts, and our award winning newsletter.
             </span>
           </p>
-          <div className="email-modal__error-message">
+          <div className="email-modal__error-message" >
             Sorry this is not a valid email
           </div>
           <div className="email-modal__form-group">
@@ -46,7 +46,7 @@ const EmailModal = () => {
             />
             <button className="email-modal__button">Send</button>
           </div>
-          <div className="email-modal__decline-offer">
+          <div className="email-modal__decline-offer" onClick={newState.closeModalAction}>
             Sorry, I'm not interested
           </div>
         </div>
