@@ -40,7 +40,7 @@ const EmailModal = () => {
               notifications, discounts, and our award winning newsletter.
             </span>
           </p>
-          <div className="email-modal__error-message" >
+          <div className={newState.emailError?"email-modal__error-message--active":"email-modal__error-message"} >
             Sorry this is not a valid email
           </div>
           <div className="email-modal__form-group">
@@ -51,6 +51,10 @@ const EmailModal = () => {
               // get and change email
               onChange={newState.getEmail}
               value={newState.email}
+              // check email validity
+              onBlur={newState.checkEmail}
+              onFocus={newState.removeError}
+
             />
             <button className="email-modal__button">Send</button>
           </div>

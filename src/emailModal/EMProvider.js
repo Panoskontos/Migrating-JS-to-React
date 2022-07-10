@@ -44,9 +44,35 @@ export function EMProvider({children}){
     const getEmail =(e) =>{
             setEmail(e.target.value)
     }
+
+
+
+    // ERROR
+    const [ emailError, setEmailError] = useState(false)
+    
+
+    const checkEmail = (e) =>{
+        console.log('checking for email')
+
+        // email regex validity
+        function is_valid(txt){
+            return /\S+@\S+\.\S+/.test(txt)
+        }
+
+        if(is_valid(email)){
+            setEmailError(false)
+        } else {
+            setEmailError(true)
+        }
+    }
+
+    const removeError = () =>{
+        console.log('Removing error')
+        setEmailError(false)
+    }
     
     return(
-        <StateContext.Provider value={{state,email,getEmail}}>
+        <StateContext.Provider value={{state,email,getEmail,checkEmail,removeError,emailError}}>
             {children}
         </StateContext.Provider>
     ) 
