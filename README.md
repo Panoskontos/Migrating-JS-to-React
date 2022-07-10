@@ -10,3 +10,5 @@ Step3 -- Setup State ContextAPI
 - useStateContext inside all components
 
 Step4 -- Create functions inside Provider and change the state
+
+Step5 -- You can create seperate hooks for some functionalities
