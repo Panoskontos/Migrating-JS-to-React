@@ -21,4 +21,4 @@ Why to do this
 - Make the component reusable
 - Provide structure so more people can contribute 
 - If you do it with JS it will be really complicated
-- React has More code but better MAintainability 
+- React has More code but better Maintainability 
